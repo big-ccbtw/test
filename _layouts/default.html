@@ -1,0 +1,53 @@
+---
+layout: compress
+---
+
+{% include base_path %}
+
+<!doctype html>
+<html lang="{{ site.locale | slice: 0,2 }}" class="no-js">
+  <head>
+    {% include head.html %}
+    <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+    {% include head/custom.html %}
+  </head>
+
+  <body>
+
+    {% include browser-upgrade.html %}
+    {% include masthead.html %}
+
+    {{ content }}
+
+    <div class="page__footer">
+      <footer>
+        {% include footer/custom.html %}
+        {% include footer.html %}
+      </footer>
+    </div>
+
+    {% include scripts.html %}
+    <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+    <script>
+      function addDarkmodeWidget() {
+        const options = {
+          bottom: '64px', // 控件位置
+          right: '32px', // 控件位置
+          left: 'unset', // 默认为 'unset'
+          time: '0.5s', // 过渡动画时间
+          mixColor: '#fff', // 混合模式颜色
+          backgroundColor: '#fff',  // 控件背景色
+          buttonColorDark: '#100f2c',  // 暗模式按钮颜色
+          buttonColorLight: '#fff', // 明模式按钮颜色
+          saveInCookies: true, // 是否在Cookies中保存用户的模式选择
+          label: '🐈‍', // 按钮标签
+          autoMatchOsTheme: true // 是否自动匹配操作系统的主题模式
+        };
+        new Darkmode(options).showWidget();
+      }
+      window.addEventListener('load', addDarkmodeWidget);
+    </script>
+    
+    
+  </body>
+</html>
